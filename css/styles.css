@@ -1,0 +1,100 @@
+body {
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.pantalla-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.btn-iniciar {
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.menu-personajes {
+    display: none;
+    padding: 20px;
+}
+
+.personajes {
+    display: flex;
+    gap: 20px;
+}
+
+#img-jugador2 {
+    transform: scaleX(-1);
+}
+
+.personaje-lista {
+    list-style-type: none;
+}
+
+.imagen-personaje {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+}
+
+.imagen-personaje img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn-iniciar-enfrentamiento {
+    padding: 10px 20px;
+    font-size: 20px;
+    display: none;
+}
+
+.enfrentamiento {
+    display: none;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.enfrentamiento-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.jugador {
+    text-align: center;
+    flex: 1;
+}
+
+.jugador img {
+    width: 150px;
+    height: 150px;
+}
+
+.barra-vida {
+    width: 150px;
+    height: 20px;
+    background-color: red;
+    margin: 10px auto;
+}
+
+.frases {
+    background-color: #f8f8f8;
+    padding: 10px;
+    min-height: 60px;
+}
+
+.zona-insultos {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px;
+    flex: 1;
+}

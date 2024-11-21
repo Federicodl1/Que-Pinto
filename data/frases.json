@@ -1,0 +1,162 @@
+{
+  "sujetos": {
+    "ataque": {
+      "masculinos": {
+        "singular": [
+          "tu hermano",
+          "tu hijo",
+          "tu perro",
+          "tu gato",
+          "tu psicólogo",
+          "tu padre"
+        ],
+        "plural": [
+          "tus peces"
+        ]
+      },
+      "femeninos": {
+        "singular": [
+          "tu madre",
+          "tu casa",
+          "tu hija",
+          "tu sentido de la moda",
+          "tu sentido del humor",
+          "tu vida",
+          "tu muerte",
+          "tu serie favorita",
+          "tu cuenta de instagram",
+          "tu playlist de spotify"
+        ],
+        "plural": [
+          "tus búsquedas de google"
+        ]
+      }
+    },
+    "masculinos": {
+      "singular": [
+        "el partido comunista",
+        "mi padre",
+        "dios",
+        "martín martínez",
+        "un balde de vómito",
+        "un mate lavado",
+        "andres ojeda"
+      ],
+      "plural": [
+        "los nazis",
+        "los tussi warriors",
+        "los viejos",
+        "los anarquistas",
+        "los beatles"
+      ]
+    },
+    "femeninos": {
+      "singular": [
+        "mi madre",
+        "esta conservación",
+        "la reina",
+        "la gente de tu barrio",
+        "la calle",
+        "la cumbia"
+      ],
+      "plural": [
+        "las viejas"
+      ]
+    }
+  },
+  "insultos": [
+    "es feo",
+    "es ridículo",
+    "es grotesco",
+    "es horrendo",
+    "baila",
+    "grita",
+    "corre",
+    "patina",
+    "salta",
+    "es más inteligente que vos",
+    "son más inteligentes que vos",
+    "merece compensación económica",
+    "mira gran hermano",
+    "hace povs en tiktok",
+    "es inglés",
+    "baila como",
+    "canta como",
+    "se parece a",
+    "apoya a",
+    "cree en",
+    "le pega a",
+    "es bastante aburrido",
+    "arruina",
+    "sabe jugar a pokemon",
+    "fue preso",
+    "come",
+    "no sabe atar una corbata",
+    "piensa que java es javascript",
+    "le gusta",
+    "te gusta",
+    "te abandonó",
+    "es skibidi",
+    "no es skibidi",
+    "juega al lol",
+    "vota a"
+  ],
+  "variaciones": [
+    {
+      "base": "es más inteligente que vos",
+      "variaciones": ["es más inteligente que vos", "son más inteligentes que vos"]
+    },
+    {
+      "base": "vota a",
+      "variaciones": ["vota a", "votan a"]
+    },
+    {
+      "base": "hace povs en tiktok",
+      "variaciones": ["hace povs en tiktok", "hacen povs en tiktok"]
+    },
+    {
+      "base": "es inglés",
+      "variaciones": ["es inglés", "es inglesa"]
+    },
+    {
+      "base": "baila como",
+      "variaciones": ["baila como", "bailan como"]
+    },
+    {
+      "base": "canta como",
+      "variaciones": ["canta como", "cantan como"]
+    },
+    {
+      "base": "se parece a",
+      "variaciones": ["se parece a", "se parecen a"]
+    },
+    {
+      "base": "apoya a",
+      "variaciones": ["apoya a", "apoyan a"]
+    },
+    {
+      "base": "cree en",
+      "variaciones": ["cree en", "creen en"]
+    },
+    {
+      "base": "le pega a",
+      "variaciones": ["le pega a", "le pegan a"]
+    },
+    {
+      "base": "es bastante aburrido",
+      "variaciones": [
+        "es bastante aburrido",
+        "es bastante aburrida",
+        "son bastante aburridos",
+        "son bastante aburridas"
+      ]
+    }
+  ],
+  "conectores": [
+    "y",
+    "además",
+    "con",
+    "como",
+    "por"
+  ]
+}
