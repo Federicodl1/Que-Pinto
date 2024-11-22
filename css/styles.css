@@ -98,3 +98,6 @@ body {
     padding: 10px;
     flex: 1;
 }
+.zona-insultos li {
+    list-style: none;
+}
