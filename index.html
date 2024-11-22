@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +9,43 @@
     <script src="js/juego.js"></script>
     <script src="js/turnos.js"></script>
     <script src="js/puntos.js"></script>
-
 </head>
+
 <body>
     <section id="pantalla-inicial" class="pantalla-inicial">
         <button id="btn-iniciar" class="btn-iniciar">Iniciar Juego</button>
     </section>
 
     <section id="menu-personajes" class="menu-personajes">
-        <h1>Elige el personaje de Jugador 1</h1>
-        <div class="personajes">
-            <ul class="personaje-lista">
-                <li><button class="btn-personaje" id="btnGg">Gonzalo Martinez</button></li>
-                <li><button class="btn-personaje" id="btnPajares">Pajares</button></li>
-            </ul>
-            <div id="imagen-personaje1" class="imagen-personaje">
-                <img id="img-personaje1" src="img/personajes/gg.png" alt="Imagen del personaje1">
+        <div class="menu-jugadores">
+            <div>
+                <h1>Elige el personaje de Jugador 1</h1>
+                <div class="personajes">
+                    <ul class="personaje-lista">
+                        <li><button class="btn-personaje" id="btnGg">Gonzalo Martinez</button></li>
+                        <li><button class="btn-personaje" id="btnPajares">Pajares</button></li>
+                    </ul>
+                    <div id="imagen-personaje1" class="imagen-personaje">
+                        <img id="img-personaje1" src="img/personajes/gg.png" alt="Imagen del personaje1">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>Elige el personaje de Jugador 2</h1>
+                <div class="personajes">
+                    <ul class="personaje-lista">
+                        <li><button class="btn-personaje" id="btnGg2">Gonzalo Martinez</button></li>
+                        <li><button class="btn-personaje" id="btnPajares2">Pajares</button></li>
+                    </ul>
+                    <div id="imagen-personaje2" class="imagen-personaje">
+                        <img id="img-personaje2" src="img/personajes/pajares.png" alt="Imagen del personaje2">
+                    </div>
+                </div>
             </div>
         </div>
-
-        <h1>Elige el personaje de Jugador 2</h1>
-        <div class="personajes">
-            <ul class="personaje-lista">
-                <li><button class="btn-personaje" id="btnGg2">Gonzalo Martinez</button></li>
-                <li><button class="btn-personaje" id="btnPajares2">Pajares</button></li>
-            </ul>
-            <div id="imagen-personaje2" class="imagen-personaje">
-                <img id="img-personaje2" src="img/personajes/pajares.png" alt="Imagen del personaje2">
-            </div>
+        <div class="cont-btn-enfrentamiento">
+            <button id="btn-iniciar-enfrentamiento" class="btn-iniciar-enfrentamiento">Iniciar Enfrentamiento</button>
         </div>
-        <button id="btn-iniciar-enfrentamiento" class="btn-iniciar-enfrentamiento">Iniciar Enfrentamiento</button>
     </section>
 
     <section id="enfrentamiento" class="enfrentamiento">
@@ -49,7 +57,20 @@
                 <button id="insultarP1">¡Insultar!</button>
             </div>
 
-            <div id="zona-insultos" class="zona-insultos"></div>
+            <div id="zona-insultos" class="zona-insultos">
+                <li id="frase1"></li>
+                <li id="frase2"></li>
+                <li id="frase3"></li>
+                <li id="frase4"></li>
+                <li id="frase5"></li>
+                <li id="frase6"></li>
+                <li id="frase7"></li>
+                <li id="frase8"></li>
+                <li id="frase9"></li>
+                <li id="frase10"></li>
+                <li id="frase11"></li>
+                <li id="frase12"></li>
+            </div>
 
             <div id="jugador2" class="jugador">
                 <img src="img/personajes/pajares.png" id="img-jugador2" alt="Personaje 2">
@@ -61,4 +82,5 @@
     </section>
     <script src="js/main.js"></script>
 </body>
+
 </html>

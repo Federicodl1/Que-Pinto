@@ -1,9 +1,36 @@
 body {
-    background-color: aqua;
+    background-color: rgba(0, 2, 150, 0.541);
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: monospace, 'Courier New', Courier;
 }
+
+button{
+    border: 2px solid;
+    background-color: #ff6600;
+    border-radius: 5px;
+    border-color: #000000;
+    color: rgb(10, 10, 10);
+    cursor: pointer;
+    font-weight: 700;
+    font-family: monospace, 'Courier New', Courier;
+}
+
+button:hover{
+    background-color: #ff3300;
+    color: rgb(0, 0, 0);
+}
+button:disabled {
+    background-color: #ff9751;
+    cursor: not-allowed; 
+  }
+  
+  button:disabled:hover {
+    background-color: #ff9751;
+    pointer-events: none;
+  }
+  
 
 .pantalla-inicial {
     display: flex;
@@ -13,13 +40,22 @@ body {
 }
 
 .btn-iniciar {
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: 15px 20px;
+    width: 280px;
+    font-size: 28px;
 }
 
 .menu-personajes {
-    display: none;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-jugadores {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    width: 100%;
+    align-items: center;
 }
 
 .personajes {
@@ -27,18 +63,23 @@ body {
     gap: 20px;
 }
 
-#img-jugador2 {
-    transform: scaleX(-1);
-}
-
 .personaje-lista {
     list-style-type: none;
 }
 
+.btn-personaje{
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+#img-jugador2 {
+    transform: scaleX(-1);
+}
+
 .imagen-personaje {
     width: 200px;
-    height: 200px;
-    background-color: #f0f0f0;
+    height: 200px;   
 }
 
 .imagen-personaje img {
@@ -46,8 +87,15 @@ body {
     max-height: 100%;
 }
 
+.cont-btn-enfrentamiento {
+    display: flex;
+    justify-content: center;
+}
+
 .btn-iniciar-enfrentamiento {
-    padding: 10px 20px;
+    padding: 10px 10px;
+    width: 75%;
+    margin-top: 60px;
     font-size: 20px;
     display: none;
 }
@@ -73,31 +121,55 @@ body {
 }
 
 .jugador img {
-    width: 150px;
-    height: 150px;
+    height: 300px;
 }
 
 .barra-vida {
-    width: 150px;
+    width: 400px;
     height: 20px;
-    background-color: red;
+    background-color: green;
     margin: 10px auto;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #000000;
 }
 
 .frases {
-    background-color: #f8f8f8;
+    background-color: rgba(255, 255, 255, 0.300);
     padding: 10px;
     min-height: 60px;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #000000;
+}
+
+.enfrentamiento-contenedor button {
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+    font-size: 16px;
 }
 
 .zona-insultos {
     width: 200px;
-    height: 200px;
-    background-color: #f0f0f0;
+    margin: 20px;
+    background-color: rgba(0, 2, 150, 0.233);
     text-align: center;
-    padding: 10px;
+    justify-content: center;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #000000;
     flex: 1;
 }
+
 .zona-insultos li {
     list-style: none;
+    margin: 5px;
+    padding: 3px;
+    background-color: #e7e7e7;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #000000;
 }

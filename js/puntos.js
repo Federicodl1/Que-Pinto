@@ -1,46 +1,60 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let vidaJugador1 = 100;
-    let vidaJugador2 = 100;
+let vidaJugador1 = 100;
+let vidaJugador2 = 100;
+let juegoTerminado = false;
 
-    const barraVida1 = document.getElementById('barra-vida-1');
-    const barraVida2 = document.getElementById('barra-vida-2');
-    const btnInsultarP1 = document.getElementById('insultarP1');
-    const btnInsultarP2 = document.getElementById('insultarP2');
-    
-    function actualizarBarraVida() {
-        barraVida1.style.width = `${vidaJugador1}%`;
-        barraVida2.style.width = `${vidaJugador2}%`;
+function actualizarBarraDeVida(jugador, vida) {
+    const barra = document.getElementById(`barra-vida-${jugador}`);
+    barra.style.width = `${vida}%`;
+    barra.style.backgroundColor = vida > 50 ? "green" : vida > 20 ? "orange" : "red";
+}
 
+function calcularDanio(insulto) {
+    return insulto.length;
+}
+
+function aplicarDanio(jugador, insulto) {
+    if (juegoTerminado) return;
+
+    const danio = calcularDanio(insulto);
+    if (jugador === 1) {
+        vidaJugador2 = Math.max(vidaJugador2 - danio * 100, 0);
+        actualizarBarraDeVida(2, vidaJugador2);
+        if (vidaJugador2 <= 0) {
+            alert("Jugador 1 gana");
+            const pantallaInicial = document.getElementById('pantalla-inicial');
+            const menuPersonajes = document.getElementById('menu-personajes');
+            const enfrentamiento = document.getElementById('enfrentamiento');
+            pantallaInicial.style.display = 'flex';
+            menuPersonajes.style.display = 'none';
+            enfrentamiento.style.display = 'none';
+        }
+    } else {
+        vidaJugador1 = Math.max(vidaJugador1 - danio, 0);
+        actualizarBarraDeVida(1, vidaJugador1);
         if (vidaJugador1 <= 0) {
-            alert('¡Jugador 2 ha ganado!');
-            reiniciarJuego();
-        } else if (vidaJugador2 <= 0) {
-            alert('¡Jugador 1 ha ganado!');
-            reiniciarJuego();
+            alert("Jugador 2 gana");
+            const pantallaInicial = document.getElementById('pantalla-inicial');
+            const menuPersonajes = document.getElementById('menu-personajes');
+            const enfrentamiento = document.getElementById('enfrentamiento');
+            pantallaInicial.style.display = 'flex';
+            menuPersonajes.style.display = 'none';
+            enfrentamiento.style.display = 'none';
         }
     }
+}
 
-    function reiniciarJuego() {
-        vidaJugador1 = 100;
-        vidaJugador2 = 100;
-        actualizarBarraVida();
-    }
-
-    btnInsultarP1.addEventListener('click', () => {
-        if (palabrasJugador1.length > 0) {
-            vidaJugador2 -= 6;
-            vidaJugador2 -= 3;
-            actualizarBarraVida();
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("insultarP1").addEventListener("click", () => {
+        const insulto = obtenerInsultoJugador1();
+        if (insulto) {
+            aplicarDanio(1, insulto);
         }
     });
 
-    btnInsultarP2.addEventListener('click', () => {
-        if (palabrasJugador2.length > 0) {
-            vidaJugador1 -= 6;
-            vidaJugador1 -= 3;
-            actualizarBarraVida();
+    document.getElementById("insultarP2").addEventListener("click", () => {
+        const insulto = obtenerInsultoJugador2();
+        if (insulto) {
+            aplicarDanio(2, insulto);
         }
     });
-
-    actualizarBarraVida();
 });

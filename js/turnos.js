@@ -5,6 +5,15 @@ let palabrasJugador2 = [];
 let bloqueadoJugador1 = false;
 let bloqueadoJugador2 = false;
 
+function getRandomItems(array, cantidad) {
+  const resultados = [];
+  for (let i = 0; i < cantidad; i++) {
+    const indiceAleatorio = Math.floor(Math.random() * array.length);
+    resultados.push(array[indiceAleatorio]);
+  }
+  return resultados;
+}
+
 function generarInsultos(data) {
   const ataqueMasculinos = getRandomItems(data.sujetos.ataque.masculinos.singular, 1);
   const ataqueFemeninos = getRandomItems(data.sujetos.femeninos.singular, 1);
@@ -35,11 +44,52 @@ function cargarFrases() {
 
 function actualizarFrasesJugador(jugador, frase) {
   if (jugador === 1) {
-    palabrasJugador1.push(frase);
+    if (!palabrasJugador1.includes(frase)) {
+      palabrasJugador1.push(frase);
+    }
     document.getElementById("frases-p1").textContent = palabrasJugador1.join(" ");
   } else {
-    palabrasJugador2.push(frase);
+    if (!palabrasJugador2.includes(frase)) {
+      palabrasJugador2.push(frase);
+    }
     document.getElementById("frases-p2").textContent = palabrasJugador2.join(" ");
+  }
+}
+
+function asignarFrases() {
+  const zonaInsultos = document.getElementById("zona-insultos");
+  if (!zonaInsultos) return;
+
+  for (let i = 0; i < 12; i++) {
+    let li = document.getElementById(`frase${i + 1}`);
+    if (!li) { 
+      li = document.createElement("li");
+      li.id = `frase${i + 1}`;
+      zonaInsultos.appendChild(li);
+    }
+    if (frasesGeneradas[i]) {
+      li.textContent = frasesGeneradas[i];
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => {
+        if ((turno === 1 && !bloqueadoJugador1) || (turno === 2 && !bloqueadoJugador2)) {
+          const fraseSeleccionada = li.textContent;
+          li.textContent = "...";
+          localStorage.setItem("fraseSeleccionada", fraseSeleccionada);
+
+          if (turno === 1) {
+            actualizarFrasesJugador(1, fraseSeleccionada);
+            bloqueadoJugador1 = true;
+            bloqueadoJugador2 = false;
+            iniciarTurnoJugador2();
+          } else {
+            actualizarFrasesJugador(2, fraseSeleccionada);
+            bloqueadoJugador2 = true;
+            bloqueadoJugador1 = false;
+            iniciarTurnoJugador1();
+          }
+        }
+      });
+    }
   }
 }
 
@@ -47,44 +97,41 @@ function iniciarTurnoJugador1() {
   const zonaInsultos = document.getElementById("zona-insultos");
   if (!zonaInsultos) return;
 
+  document.getElementById("insultarP1").disabled = false;
+  document.getElementById("insultarP2").disabled = true;
+  document.getElementById("frases-p2").style.backgroundColor = "#d3d3d3"; 
+  document.getElementById("frases-p1").style.backgroundColor = "white"; 
+  document.getElementById("img-jugador1").style.backgroundColor = "rgba(0, 2, 150, 0.233)";
+  document.getElementById("img-jugador2").style.backgroundColor = "";
+  turno = 1;
+
   zonaInsultos.innerHTML = "";
-  frasesGeneradas.forEach(elemento => {
-    const li = document.createElement("li");
-    li.textContent = elemento;
-    li.style.cursor = "pointer";
-    li.addEventListener("click", () => {
-      if (!bloqueadoJugador1 && li.textContent !== "...") {
-        li.textContent = "...";
-        actualizarFrasesJugador(1, elemento);
-        bloqueadoJugador1 = true;
-        bloqueadoJugador2 = false;
-        iniciarTurnoJugador2();
-      }
-    });
-    zonaInsultos.appendChild(li);
-  });
+  asignarFrases();
 }
 
 function iniciarTurnoJugador2() {
   const zonaInsultos = document.getElementById("zona-insultos");
   if (!zonaInsultos) return;
 
+  document.getElementById("insultarP1").disabled = true;
+  document.getElementById("insultarP2").disabled = false;
+  document.getElementById("frases-p2").style.backgroundColor = "white";
+  document.getElementById("frases-p1").style.backgroundColor = "#d3d3d3";
+  document.getElementById("img-jugador2").style.backgroundColor = "rgba(0, 2, 150, 0.233)";
+  document.getElementById("img-jugador1").style.backgroundColor = "";
+
+  turno = 2;
+
   zonaInsultos.innerHTML = "";
-  frasesGeneradas.forEach(elemento => {
-    const li = document.createElement("li");
-    li.textContent = elemento;
-    li.style.cursor = "pointer";
-    li.addEventListener("click", () => {
-      if (!bloqueadoJugador2 && li.textContent !== "...") {
-        li.textContent = "...";
-        actualizarFrasesJugador(2, elemento);
-        bloqueadoJugador2 = true;
-        bloqueadoJugador1 = false;
-        iniciarTurnoJugador1();
-      }
-    });
-    zonaInsultos.appendChild(li);
-  });
+  asignarFrases();
+}
+
+function obtenerInsultoJugador1() {
+  return palabrasJugador1.join(" ");
+}
+
+function obtenerInsultoJugador2() {
+  return palabrasJugador2.join(" ");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
