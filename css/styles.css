@@ -6,7 +6,7 @@ body {
     font-family: monospace, 'Courier New', Courier;
 }
 
-button{
+button {
     border: 2px solid;
     background-color: #ff6600;
     border-radius: 5px;
@@ -17,20 +17,20 @@ button{
     font-family: monospace, 'Courier New', Courier;
 }
 
-button:hover{
+button:hover {
     background-color: #ff3300;
     color: rgb(0, 0, 0);
 }
+
 button:disabled {
     background-color: #ff9751;
-    cursor: not-allowed; 
-  }
-  
-  button:disabled:hover {
+    cursor: not-allowed;
+}
+
+button:disabled:hover {
     background-color: #ff9751;
     pointer-events: none;
-  }
-  
+}
 
 .pantalla-inicial {
     display: flex;
@@ -58,6 +58,18 @@ button:disabled {
     align-items: center;
 }
 
+.menu-jugador {
+    padding: 20px 50px 50px 50px;
+    background-color: rgba(0, 2, 150, 0.233);
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #000000;
+}
+
+.menu-jugador h1 {
+    margin-bottom: 40px;
+}
+
 .personajes {
     display: flex;
     gap: 20px;
@@ -67,7 +79,7 @@ button:disabled {
     list-style-type: none;
 }
 
-.btn-personaje{
+.btn-personaje {
     width: 100%;
     font-size: 15px;
     margin-bottom: 3px;
@@ -79,7 +91,7 @@ button:disabled {
 
 .imagen-personaje {
     width: 200px;
-    height: 200px;   
+    height: 200px;
 }
 
 .imagen-personaje img {
@@ -113,6 +125,8 @@ button:disabled {
     align-items: center;
     height: 100%;
     width: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .jugador {
@@ -172,4 +186,32 @@ button:disabled {
     border: 1px solid;
     border-radius: 5px;
     border-color: #000000;
+}
+
+#carrusel-fondos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#carrusel-fondos img {
+    max-width: 200px;
+    max-height: 150px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+#carrusel-fondos button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#carrusel-fondos button:hover {
+    background-color: #ff3300;
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Qué pintó?</title>
+    <title>¿¡Qué pintó!?</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/juego.js"></script>
     <script src="js/turnos.js"></script>
@@ -24,6 +24,7 @@
                     <ul class="personaje-lista">
                         <li><button class="btn-personaje" id="btnGg">Gonzalo Martinez</button></li>
                         <li><button class="btn-personaje" id="btnPajares">Pajares</button></li>
+                        <li><button class="btn-personaje" id="btnNimas">Nimas</button></li>
                     </ul>
                     <div id="imagen-personaje1" class="imagen-personaje">
                         <img id="img-personaje1" src="img/personajes/gg.png" alt="Imagen del personaje1">
@@ -36,6 +37,7 @@
                     <ul class="personaje-lista">
                         <li><button class="btn-personaje" id="btnGg2">Gonzalo Martinez</button></li>
                         <li><button class="btn-personaje" id="btnPajares2">Pajares</button></li>
+                        <li><button class="btn-personaje" id="btnNimas2">Nimas</button></li>
                     </ul>
                     <div id="imagen-personaje2" class="imagen-personaje">
                         <img id="img-personaje2" src="img/personajes/pajares.png" alt="Imagen del personaje2">
@@ -43,13 +45,22 @@
                 </div>
             </div>
         </div>
+        <div id="seleccion-de-fondo">
+            <h1>Elige un fondo</h1>
+            <div id="carrusel-fondos">
+                <button id="prev">◀</button>
+                <img id="imagen-fondo" src="/img/fondos/default.png" alt="Fondo actual">
+                <button id="next">▶</button>
+            </div>
+        </div>
         <div class="cont-btn-enfrentamiento">
             <button id="btn-iniciar-enfrentamiento" class="btn-iniciar-enfrentamiento">Iniciar Enfrentamiento</button>
         </div>
+        
     </section>
 
     <section id="enfrentamiento" class="enfrentamiento">
-        <div class="enfrentamiento-contenedor">
+        <div class="enfrentamiento-contenedor" id="enfrentamiento-contenedor">
             <div id="jugador1" class="jugador">
                 <img src="img/personajes/gg.png" id="img-jugador1" alt="Personaje 1">
                 <div id="barra-vida-1" class="barra-vida"></div>

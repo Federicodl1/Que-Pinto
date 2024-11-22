@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (boton.id === 'btnPajares') {
                 imgDisplayJugador1.src = 'img/personajes/pajares.png';
                 personajeJugador1 = 'pajares';
+            }else if (boton.id === 'btnNimas') {
+                imgDisplayJugador1.src = 'img/personajes/nimas.png';
+                personajeJugador1 = 'nimas';
             }
             if (personajeJugador1 && personajeJugador2) {
                 btnIniciarEnfrentamiento.style.display = 'block';
@@ -46,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (boton.id === 'btnPajares2') {
                 imgDisplayJugador2.src = 'img/personajes/pajares.png';
                 personajeJugador2 = 'pajares';
+            }else if (boton.id === 'btnNimas2') {
+                imgDisplayJugador2.src = 'img/personajes/nimas.png';
+                personajeJugador2 = 'nimas';
             }
             if (personajeJugador1 && personajeJugador2) {
                 btnIniciarEnfrentamiento.style.display = 'block';
@@ -62,4 +68,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         mostrarSeccion(enfrentamiento);
     });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const fondos = [
+        "default",
+        "esi.png",
+        "plaza_independencia.png",
+        "palacio_legislativo.png",
+        "plaza_independencia.png",
+    ];
+    let currentIndex = 0;
+
+    const imagenFondo = document.getElementById("imagen-fondo");
+    const enfrentamientoContenedor = document.getElementById("enfrentamiento-contenedor");
+    const btnPrev = document.getElementById("prev");
+    const btnNext = document.getElementById("next");
+
+    function actualizarFondo() {
+        const fondoActual = fondos[currentIndex];
+        imagenFondo.src = fondoActual === "default" ? "/img/fondos/default.png" : `/img/fondos/${fondoActual}`;
+        enfrentamientoContenedor.style.backgroundImage =
+            fondoActual === "default" ? "" : `url(/img/fondos/${fondoActual})`;
+    }
+
+    btnPrev.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + fondos.length) % fondos.length;
+        actualizarFondo();
+    });
+
+    btnNext.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % fondos.length;
+        actualizarFondo();
+    });
+
+    actualizarFondo(); 
 });

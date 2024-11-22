@@ -47,12 +47,16 @@ function actualizarFrasesJugador(jugador, frase) {
     if (!palabrasJugador1.includes(frase)) {
       palabrasJugador1.push(frase);
     }
-    document.getElementById("frases-p1").textContent = palabrasJugador1.join(" ");
+    const frasesP1 = document.getElementById("frases-p1");
+    frasesP1.textContent = palabrasJugador1.join(" ");
+    frasesP1.textContent = frasesP1.textContent.charAt(0).toUpperCase() + frasesP1.textContent.slice(1);
   } else {
     if (!palabrasJugador2.includes(frase)) {
       palabrasJugador2.push(frase);
     }
-    document.getElementById("frases-p2").textContent = palabrasJugador2.join(" ");
+    const frasesP2 = document.getElementById("frases-p2");
+    frasesP2.textContent = palabrasJugador2.join(" ");
+    frasesP2.textContent = frasesP2.textContent.charAt(0).toUpperCase() + frasesP2.textContent.slice(1);
   }
 }
 
@@ -74,7 +78,6 @@ function asignarFrases() {
         if ((turno === 1 && !bloqueadoJugador1) || (turno === 2 && !bloqueadoJugador2)) {
           const fraseSeleccionada = li.textContent;
           li.textContent = "...";
-          localStorage.setItem("fraseSeleccionada", fraseSeleccionada);
 
           if (turno === 1) {
             actualizarFrasesJugador(1, fraseSeleccionada);
@@ -141,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("insultarP1").addEventListener("click", () => {
     if (palabrasJugador1.length > 0) {
-      alert("Insulto formulado: " + palabrasJugador1.join(" "));
+      alert("Jugador 1: " + palabrasJugador1.join(" "));
       bloqueadoJugador1 = true;
       document.getElementById("frases-p1").textContent = "";
       fetch("../data/frases.json")
@@ -157,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("insultarP2").addEventListener("click", () => {
     if (palabrasJugador2.length > 0) {
-      alert("Insulto formulado: " + palabrasJugador2.join(" "));
+      alert("Jugador 2: " + palabrasJugador2.join(" "));
       bloqueadoJugador2 = true;
       document.getElementById("frases-p2").textContent = "";
       fetch("../data/frases.json")

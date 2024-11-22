@@ -17,7 +17,7 @@ function aplicarDanio(jugador, insulto) {
 
     const danio = calcularDanio(insulto);
     if (jugador === 1) {
-        vidaJugador2 = Math.max(vidaJugador2 - danio * 100, 0);
+        vidaJugador2 = Math.max(vidaJugador2 - danio, 0);
         actualizarBarraDeVida(2, vidaJugador2);
         if (vidaJugador2 <= 0) {
             alert("Jugador 1 gana");
@@ -46,8 +46,10 @@ function aplicarDanio(jugador, insulto) {
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("insultarP1").addEventListener("click", () => {
         const insulto = obtenerInsultoJugador1();
+
         if (insulto) {
             aplicarDanio(1, insulto);
+            localStorage.removeItem("palabrasJugador1");
         }
     });
 
@@ -55,6 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const insulto = obtenerInsultoJugador2();
         if (insulto) {
             aplicarDanio(2, insulto);
+            localStorage.removeItem("palabrasJugador2");
         }
     });
 });
+
+
