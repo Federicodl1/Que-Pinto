@@ -31,10 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (boton.id === 'btnPajares') {
                 imgDisplayJugador1.src = 'img/personajes/pajares.png';
                 personajeJugador1 = 'pajares';
-            }else if (boton.id === 'btnNimas') {
+            } else if (boton.id === 'btnNimas') {
                 imgDisplayJugador1.src = 'img/personajes/nimas.png';
                 personajeJugador1 = 'nimas';
+            } else if (boton.id === 'btnMauri') {
+                imgDisplayJugador1.src = 'img/personajes/mauri.png';
+                personajeJugador1 = 'mauri';
+            } else if (boton.id === 'btnEmi') {
+                imgDisplayJugador1.src = 'img/personajes/emi.png';
+                personajeJugador1 = 'emi';
             }
+
             if (personajeJugador1 && personajeJugador2) {
                 btnIniciarEnfrentamiento.style.display = 'block';
             }
@@ -49,10 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (boton.id === 'btnPajares2') {
                 imgDisplayJugador2.src = 'img/personajes/pajares.png';
                 personajeJugador2 = 'pajares';
-            }else if (boton.id === 'btnNimas2') {
+            } else if (boton.id === 'btnNimas2') {
                 imgDisplayJugador2.src = 'img/personajes/nimas.png';
                 personajeJugador2 = 'nimas';
+            } else if (boton.id === 'btnMauri2') {
+                imgDisplayJugador2.src = 'img/personajes/mauri.png';
+                personajeJugador2 = 'mauri';
+            } else if (boton.id === 'btnEmi2') {
+                imgDisplayJugador2.src = 'img/personajes/emi.png';
+                personajeJugador2 = 'emi';
             }
+
             if (personajeJugador1 && personajeJugador2) {
                 btnIniciarEnfrentamiento.style.display = 'block';
             }
@@ -101,5 +115,5 @@ document.addEventListener("DOMContentLoaded", function () {
         actualizarFondo();
     });
 
-    actualizarFondo(); 
+    actualizarFondo();
 });
